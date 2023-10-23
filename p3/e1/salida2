@@ -1,0 +1,59 @@
+        OCaml version 4.13.1
+
+val x : int = 1
+val y : int = 2
+- : int = -1
+- : int = 0
+- : int = -1
+val z : int = 3
+- : int = 3
+val x : int = 5
+- : int = 7
+- : int = 3
+- : int = 10
+- : int = 7
+- : int = 24
+- : int = 10
+- : int -> int = <fun>
+- : int = 6
+- : int = 5
+val f : int -> int = <fun>
+- : int -> int = <fun>
+- : int = 6
+- : int = 5
+- : int = 10
+val x : int = 100
+- : int = 200
+val m : int = 1000
+val g : int -> int = <fun>
+- : int -> int = <fun>
+- : int = 1003
+[1mLine 3, characters 13-34[0m:
+3 | let istrue = function true -> true;;
+                 [1;35m^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 8 [partial-match]: this pattern-matching is not exhaustive.
+Here is an example of a case that is not matched:
+false
+val istrue : bool -> bool = <fun>
+- : bool -> bool = <fun>
+- : bool = true
+[1mLine 7, characters 16-34[0m:
+7 | let iscero_v1 = function 0 -> true;;
+                    [1;35m^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 8 [partial-match]: this pattern-matching is not exhaustive.
+Here is an example of a case that is not matched:
+1
+val iscero_v1 : int -> bool = <fun>
+- : bool = true
+val iscero_v2 : int -> bool = <fun>
+- : bool = true
+- : bool = false
+val all_to_true : bool -> bool = <fun>
+- : bool = true
+- : bool = true
+val first_all_to_true : bool -> bool = <fun>
+val all_to_true : 'a -> bool = <fun>
+- : bool = true
+- : bool = true
+- : bool = true
+

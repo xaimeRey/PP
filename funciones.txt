@@ -1,0 +1,5 @@
+truncate -> elimina los decimales y devuelve int
+
+floor -> redondea hacia abajo
+
+ceil -> redondea hacia arriba
