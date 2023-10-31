@@ -17,3 +17,23 @@ let crono f x =
 let rec length l = 
   if l = [] then 0
   else 1 + length (List.tl l);; (* hacer un length recuriva terminal *)
+
+let rec append l1 l2 = match l1 with (* append -> concatenación *)
+  [] -> l2 | h::t -> h :: append t l2;;
+
+let rec rev_append l1 l2 = match l1 with
+  [] -> l2 | h::t -> rev_append t (h::l2);;
+
+let rev l = rev_append l [];;
+
+let append' l1 l2 = rev_append (rev l1) l2;;
+
+
+(* 
+*     
+*     List.init 24 (function i -> char_of_int (64+i));; || List.init 100 succ;;
+*
+*     List.nth ['a'; 'b'; 'c'] 1;;   ->    - : char = 'b' 
+*
+*     Failure "error";;   ->    - : exn = Failure "error"
+*)
