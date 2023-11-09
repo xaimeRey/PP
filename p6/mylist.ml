@@ -183,7 +183,7 @@ let mem_assoc x l =
 let remove_assoc x l =
   let rec aux laux definitiva =
     match laux with
-    [] -> rev definitiva
+    [] -> definitiva
     | (z, y)::t -> if z <> x || not (mem_assoc x definitiva) then aux t ((z, y)::definitiva)
                    else aux t definitiva
-  in aux l [];;
+  in aux (rev l) [];;
