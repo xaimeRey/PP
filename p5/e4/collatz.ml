@@ -53,7 +53,7 @@ let rec longest_in m n =
   else
     longest_in m (n-1);;  
 
-let highest_in m n =
+let rec highest_in m n =
   if m = n then
     (m, top m)
   else if top m < top n then
