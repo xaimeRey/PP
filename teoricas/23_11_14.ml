@@ -29,7 +29,7 @@ let compatible p l =
 let queens n = 
   let rec completar path i j =
     if i > n then 
-      Some path
+      Some (List.rev path)
     else if j > n then 
       match path with
       [] -> None
