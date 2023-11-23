@@ -56,3 +56,5 @@ let entero_of_int = function
          else Neg (nat_of_int (-n));;
 
 type 'a option = None | Some of 'a;;
+
+type 'a lista = Vacia | Novacia of 'a * 'a lista;;
