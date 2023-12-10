@@ -33,11 +33,49 @@ let rec compress = function
                else h1 :: compress (h2::t)
   | l -> l;;
 
-let compress list = (* ESTÁ MAL HAY QUE ACABARLO *)
+let compress list = 
   let rec aux laux def = 
+    match laux, def with
+    [], _ -> List.rev def
+    | h::t, h2::t2 -> if h = (List.hd def) then aux t def
+                   else aux t (h::def)
+    | h::t, [] -> aux t (h::def)
+  in aux list [];;
+
+let append' = List.append
+
+let append' l1 l2 =
+  let rec aux laux1 laux2 def =
+    match laux1, laux2 with
+    [], [] -> List.rev def
+    | h::t, _ -> aux t laux2 (h::def)
+    | [], h::t -> aux laux1 t (h::def)
+  in aux l1 l2 [];;
+
+let map' = List.map;;
+
+let map' f l =
+  let rec aux laux def =
     match laux with
     [] -> List.rev def
-    | h1::h2::t -> if h1 = h2 then aux t (h2::def)
-                   else aux t def
-    | h::t -> aux t (h::def)
-  in aux list [];;
+    | h::t -> aux t ((f h)::def)
+  in aux l [];;
+
+let fold_right' = List.fold_right;;
+
+let fold_right' f l acc =
+  let rec aux laux acum =
+    match laux with
+    [] -> acum
+    | h::t -> aux t (f h acum)
+  in aux l acc;;
+
+  let incseg l =
+    List.fold_right (fun x t -> x::List.map ((+) x) t) l [];;
+
+  let incseg l =
+    let rec aux laux def = 
+      match laux with
+      [] -> List.rev def
+      | h::t -> aux t ((h+(List.hd def))::def)
+    in aux l [List.hd l];;
